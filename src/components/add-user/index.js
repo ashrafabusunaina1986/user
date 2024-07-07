@@ -39,6 +39,7 @@ function AddUser() {
         onOpenChange={() => {
           setOpen(false);
           setDataFormControls(addNewFormControlsInintial);
+          setErrors(null);
         }}
       >
         <DialogContent>
