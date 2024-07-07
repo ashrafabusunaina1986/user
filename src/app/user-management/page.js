@@ -12,7 +12,7 @@ export default async function UserManagement() {
         <h1>user managment</h1>
         <AddUser />
       </div>
-      <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 mt-10">
+      <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 sm:font-semibold sm:text-sm lg:grid-cols-3 gap-3 mt-10">
         {users.map((user) => (
           <SingleUser user={user} />
         ))}
