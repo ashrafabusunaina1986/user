@@ -6,6 +6,7 @@ import { addNewFormControlsInintial, formControls } from "@/utils";
 import { Label } from "../ui/label";
 import { Input } from "../ui/input";
 import { addNewUser } from "@/actions";
+import { useRouter } from "next/navigation";
 
 function AddUser() {
   const [open, setOpen] = useState(false);
@@ -14,6 +15,7 @@ function AddUser() {
   );
   const [loading, setLoading] = useState(false);
   const [errors, setErrors] = useState(null);
+  const router = useRouter();
   const disableSaveHandler = () => {
     return Object.keys(dataFormControls).every(
       (item) => dataFormControls[item].trim() !== ""
