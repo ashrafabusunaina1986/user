@@ -13,7 +13,8 @@ export async function addNewUser(formData) {
   try {
     await db();
     const user = await User.find({ email: formData.email });
-    if (user) return { success: false, message: "Email is already" };
+    if (user && user.length > 0)
+      return { success: false, user, message: "Email is already" };
     else {
       const addNewUser = await User.create(formData);
       if (addNewUser)

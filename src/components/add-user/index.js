@@ -22,6 +22,7 @@ function AddUser() {
   async function AddNewUserHandler() {
     setLoading(true);
     const NewUser = await addNewUser(dataFormControls);
+
     if (NewUser.success) {
       setOpen(false);
       setErrors(null);
