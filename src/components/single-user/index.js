@@ -8,13 +8,11 @@ import {
 function SingleUser({ user }) {
   return (
     <Card key={user._id} className="p-6">
-      <CardContent>
-        <CardTitle className="mb-5  ">{user.email}</CardTitle>
-        <CardDescription>
-          Name:{user.firstname + " " + user.lastname}
-          Address:{user.address}
-        </CardDescription>
-      </CardContent>
+      <CardTitle className="mb-5  ">
+        {user.firstname + " " + user.lastname}
+      </CardTitle>
+      <CardDescription>{user.email}</CardDescription>
+      <CardContent className="mt-5 -ms-5">{user.address}</CardContent>
     </Card>
   );
 }
