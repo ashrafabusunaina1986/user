@@ -2,6 +2,7 @@
 
 import db from "@/dbconfig";
 import User from "@/models/user";
+import { revalidatePath } from "next/cache";
 
 export async function fetchListOfProducts() {
   const api = await fetch("https://dummyjson.com/products");
@@ -9,7 +10,7 @@ export async function fetchListOfProducts() {
   return result?.products;
 }
 //Add New User
-export async function addNewUser(formData) {
+export async function addNewUser(formData,PathToRevalidate) {
   try {
     await db();
     const user = await User.find({ email: formData.email });
@@ -17,12 +18,13 @@ export async function addNewUser(formData) {
       return { success: false, user, message: "Email is already" };
     else {
       const addNewUser = await User.create(formData);
-      if (addNewUser)
+      if (addNewUser) {
+        revalidatePath(PathToRevalidate)
         return {
           success: true,
           message: "New user is added",
         };
-      else
+      } else
         return {
           success: false,
           message: "New user is not added",
