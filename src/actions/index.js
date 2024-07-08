@@ -43,15 +43,10 @@ export async function fetchDataUser() {
   try {
     await db();
     const getUsers = await User.find();
-    if (getUsers && getUsers.length > 0)
+    if (getUsers)
       return {
         success: true,
         getUsers,
-      };
-    else
-      return {
-        success: false,
-        message: "Users not found",
       };
   } catch (error) {
     return {
