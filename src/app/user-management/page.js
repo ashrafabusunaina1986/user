@@ -8,7 +8,7 @@ export default async function UserManagement() {
   const users = (await fetchDataUser()).getUsers;
   return (
     <div className="p-10">
-      <div className="flex justify-between">
+      <div className="flex flex-col gap-10 sm:flex-row sm:justify-between md:flex-row  md:justify-between lg:flex-row lg:justify-between">
         <h1>user managment</h1>
         <AddUser />
       </div>
@@ -16,7 +16,7 @@ export default async function UserManagement() {
         {users && users.length > 0 ? (
           users.map((user) => <SingleUser user={user} />)
         ) : (
-          <div className="text-3xl sm:text-xl sm:font-semibold  font-extrabold text-gray-100 rounded-full px-8 py-5 shadow-xl sm:px-5 sm:py-3 shadow-gray-500 w-max flex justify-center bg-gray-700">
+          <div className="text-xl font-semibold sm:font-extrabold md:font-extrabold lg:font-extrabold sm:text-3xl md:text-3xl lg:text-3xl text-gray-100 rounded-full px-5 py-3 sm:px-8 md:px-8 lg:px-8 sm:py-5 md:py-5 lg:py-5 shadow-xl  shadow-gray-500 w-max flex justify-center bg-gray-700">
             Users not found
           </div>
         )}
